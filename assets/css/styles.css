@@ -470,7 +470,7 @@ p {
 }
 
 .ncWrapper {
-  width: 60rem;
+  width: 61.25rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -485,7 +485,7 @@ p {
   position: fixed;
   top: 50%;
 */
-  max-width: 19.375rem;
+  max-width: 21.25rem;
   padding: .625rem;
   border: 4px solid #8C4F95;
   -webkit-box-sizing: border-box;
