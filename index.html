@@ -1,136 +1,156 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Nebulochat</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
   <div class="ncWrapper">
-    <img src="assets/img/nebulo.png" alt="Nebulochat" class="logo" width="316" height="210">
-    <nav class="ncMenuWrapper" role="navigation">
-      <ul class="ncMenu">
-        <li class="ncMenu-item"><a href="" class="ncMenu-link">Home</a></li>
-        <li class="ncMenu-item"><a href="" class="ncMenu-link">About</a></li>
-        <li class="ncMenu-item"><a href="" class="ncMenu-link">Download</a></li>
-        <li class="ncMenu-item"><a href="" class="ncMenu-link">How to make a signaling server</a></li>
-        <li class="ncMenu-item"><a href="" class="ncMenu-link">Special thanks</a></li>
-      </ul>
-    </nav>
-    <main role="main">
-      <h1>NEBULOchat</h1>
-<p>Welcome to the official website of the Chrome Extension "Nebulo".
-You’ll find more information about Nebulo itself, and how to create your own signaling server.</p>
+    <div class="ncLogoMenu">
+      <img src="assets/img/nebulo.png" alt="Nebulochat" class="logo" width="316" height="210">
+      <nav class="ncMenuWrapper" role="navigation">
+        <ul class="ncMenu">
+          <li class="ncMenu-item"><a href="" class="ncMenu-link">Home</a>
+          </li>
+          <li class="ncMenu-item"><a href="" class="ncMenu-link">About</a>
+          </li>
+          <li class="ncMenu-item"><a href="" class="ncMenu-link">Download</a>
+          </li>
+          <li class="ncMenu-item"><a href="" class="ncMenu-link">How to make a signaling server?</a>
+          </li>
+          <li class="ncMenu-item"><a href="" class="ncMenu-link">Special thanks</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main class="ncContent" role="main">
+      <h1 class="ncContent-title">nebulo<span>chat</span></h1>
+      <p>Welcome to the official website of the Chrome Extension "Nebulo". You’ll find more information about Nebulo itself, and how to create your own signaling server.</p>
+      <section class="ncSection">
+        <header class="ncSection-header">
+          <h2 class="nc-subTitle">About</h2>
+          <h3 class="nc-subSubTitle">What makes Nebulo special?</h3>
+        </header>
+        <p>Nebulo isn't yet another IRC client. When you use it to chat with someone else, your messages aren’t sent to a centralized server but rather sent directly to the recipients, or at worst sent (but first encrypted ;) ) via a TURN server. It's like a P2P system.</p>
 
-      <h2>About</h2>
-<h3>What makes Nebulo special?</h3>
-<p>Nebulo isn't yet another IRC client. When you use it to chat with someone else, your messages aren’t sent to a centralized server but rather sent directly to the recipients, or at worst sent (but first encrypted ;) ) via a TURN server.
-  It's like a P2P system.</p>
+        <h3 class="nc-subSubTitle">Why use servers then?</h3>
+        <p>The signaling server is only used to connect you to other people who visit the same webpage, and shares their IP address with you, so you can send directly your message to them. In a sense, it acts the same way as a tracker does within the BitTorrent protocol. The STUN/TURN servers are (for now...) require to prevent network blocking between users, due to NAT and some firewalls. The STUN servers are only used to give you, you're public IP address. TURN Server are used, if the P2P connexion is impossible, and they works like relay between you and others. If you want better explanation: <a href="http://io13webrtc.appspot.com/#44">Read this from slide 44 to slide 52</a>.</p>
 
-<h3>Why use servers then?</h3>
-<p>The signaling server is only used to connect you to other people who visit the same webpage, and shares their IP address with you, so you can send directly your message to them.
-In a sense, it acts the same way as a tracker does within the BitTorrent protocol.
-The STUN/TURN servers are (for now...) require to prevent network blocking between users, due to NAT and some firewalls.
-The STUN servers are only used to give you, you're public IP address. TURN Server are used, if the P2P connexion is impossible, and they works like relay between you and others.
-If you want better explanation: <a href="http://io13webrtc.appspot.com/#44">Read this from slide 44 to slide 52</a>.</p>
+        <h3 class="nc-subSubTitle">How can you do that?</h3>
+        <p>This P2P-like communication works simply by using the WebRTC technology! Natively supported by recent versions of Chrome, Firefox, Opera, ... To be more specific, this extension makes use of the <a href="http://www.rtcmulticonnection.org/">RTCMultiConnection Library</a>. As for the server, <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/websocket-over-nodejs">websocket-over-nodejs</a> is used.</p>
 
-<h3>How can you do that?</h3>
-<p>This P2P-like communication works simply by using the WebRTC technology! Natively supported by recent versions of Chrome, Firefox, Opera, ...
-To be more specific, this extension makes use of the <a href="http://www.rtcmulticonnection.org/">RTCMultiConnection Library</a>.
-As for the server, <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/websocket-over-nodejs">websocket-over-nodejs</a> is used.</p>
+        <h3 class="nc-subSubTitle">Wait, you transmit my IP address?</h3>
+        <p>Well, like all P2P system, it's required. But if you use the default signaling server or the one using the wss (WebSocketSecure) protocol, your IP address is hidden between signaling server and clients. Only people using the extension have access to it. Some other servers can occasionally get your IP (like the STUN Google server) to connect multiples peoples behind NAT or Firewall. But if you want to protect your IP, you can alway use a VPN, tor or other spoofing stuff.</p>
 
-<h3>Wait, you transmit my IP address?</h3>
-<p>Well, like all P2P system, it's required. But if you use the default signaling server or the one using the wss (WebSocketSecure) protocol, your IP address is hidden between signaling server and clients.
-Only people using the extension have access to it.
-Some other servers can occasionally get your IP (like the STUN Google server) to connect multiples peoples behind NAT or Firewall. But if you want to protect your IP, you can alway use a VPN, tor or other spoofing stuff.</p>
+        <h3 class="nc-subSubTitle">Can you see on which website I used this?</h3>
+        <p>Nope, I chose to do this a way it can't be found on the signaling server, by generating a client-side (locally on your computer) a SHA256 hash (unique to every webpage). Then, when many people send the same hash to the signaling server, the server knows they are visiting the same webpage, but it is unable to know what page it is.</p>
 
-<h3>Can you see on which website I used this?</h3>
-<p>Nope, I chose to do this a way it can't be found on the signaling server, by generating a client-side (locally on your computer) a SHA256 hash (unique to every webpage).
-Then, when many people send the same hash to the signaling server, the server knows they are visiting the same webpage, but it is unable to know what page it is.</p>
+        <h3 class="nc-subSubTitle">What if there is an infected network, evil server, or something recording what I said to someone?</h3>
+        <p>This could happen if someone wants to record what you said on this network, BUT it's IMPOSSIBLE without knowing the webpage you visit, or intercepting on your side the hash identifying this webpage.</p>
 
-<h3>What if there is an infected network, evil server, or something recording what I said to someone?</h3>
-<p>This could happen if someone wants to record what you said on this network,
-BUT it's IMPOSSIBLE without knowing the webpage you visit, or intercepting on your side the hash identifying this webpage.</p>
+        <p>I chose to use a powerful and fast cryptographic algorithm to encrypt everything you said with the hash locally. So before your message goes out of your computer, the algorithm is named <a href="http://en.wikipedia.org/wiki/Anubis_%28cipher%29">Anubis</a>.</p>
+      </section>
+      <section class="ncSection">
+        <header class="ncSection-header">
+          <h2 class="nc-subTitle">Download</h2>
+        </header>
+        <p>NebuloChat is available on the Chrome Webstore:</p>
+        <a href="https://chrome.google.com/webstore/category/apps">Available on Google WebStore</a>
+        <p>You can also download Nebulochat as .zip (and use it as developper extension):</p>
+        <ul class="ncList">
+          <li class="ncList-item"><a class="ncList-link" href="nebulochat.com/Nebulo_1.0.3.min.zip">Download Nebulchat 1.0.3 (minified)]</a> – no mirror at the moment.</li>
+          <li class="ncList-item"><a class="ncList-link" href="nebulochat.com/Nebulo_1.0.3.zip">Download Nebulchat 1.0.3</a> – no mirror at the moment.</li>
+        </ul>
+        <p>This extension is released under the term of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+      </section>
+      <section class="ncSection">
+        <header class="ncSection-header">
+          <h2 class="nc-subTitle">How to make your own Signaling Server</h2>
+        </header>
+        <p>You will need to had a Dedicated Server, or a VPS. You can use any operating system on your server (if it support node.JS), but I will assume that you use a fully updated Linux distribution. I recommend Debian or CentOS.</p>
 
-<p>I chose to use a powerful and fast cryptographic algorithm to encrypt everything you said with the hash locally. So before your message goes out of your computer, the algorithm is named <a href="http://en.wikipedia.org/wiki/Anubis_%28cipher%29">Anubis</a>.</p>
-
-<h2>Download</h2>
-<p>NebuloChat is available on the Chrome Webstore:</p>
-<a href="https://chrome.google.com/webstore/category/apps">Available on Google WebStore</a>
-<p>You can also download Nebulochat as .zip (and use it as developper extension):</p>
-<a href="nebulochat.com/Nebulo_1.0.3.min.zip">Download Nebulchat 1.0.3 (minified)]</a> – no mirror at the moment.
-<a href="nebulochat.com/Nebulo_1.0.3.zip">Download Nebulchat 1.0.3</a> – no mirror at the moment.
-<p>This extension is released under the term of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
-
-<h2>How to make your own Signaling Server</h2>
-<p>You will need to had a Dedicated Server, or a VPS.
-You can use any operating system on your server (if it support node.JS), but I will assume that you use a fully updated Linux distribution.
-I recommend Debian or CentOS.</p>
-
-<ul>
-  <li><h3>I – Add Nodesource repos:</h3></li>
-  <li><span>On Debian (as root):</span>
-    <code>
+        <ul class="ncList">
+          <li class="ncList-item">
+            <h3 class="nc-subSubTitle">I – Add Nodesource repos:</h3>
+          </li>
+          <li class="ncList-item"><span>On Debian (as root):</span>
+            <code class="ncCodeExample">
     apt-get install curl
     curl -sL https://deb.nodesource.com/setup | bash - 
     </code>
-  </li>
-  <li><span>On CentOS (as root):</span>
-    <code>
+          </li>
+          <li class="ncList-item"><span>On CentOS (as root):</span>
+            <code class="ncCodeExample">
     curl -sL https://rpm.nodesource.com/setup | bash - 
     </code>
-  </li>
-  <li><h3>II- Install Node.JS, npm, and screen:</h3></li>
-  <li><span>On Debian (as root):</span>
-    <code>
+          </li>
+          <li class="ncList-item">
+            <h3 class="nc-subSubTitle">II- Install Node.JS, npm, and screen:</h3>
+          </li>
+          <li class="ncList-item"><span>On Debian (as root):</span>
+            <code class="ncCodeExample">
     apt-get install -y nodejs build-essential screen
     </code>
-  </li>
-  <li><span>On CentOS (as root):</span>
-    <code>
+          </li>
+          <li class="ncList-item"><span>On CentOS (as root):</span>
+            <li class="ncList-item"><span>On CentOS (as root):</span>
+              <code class="ncCodeExample">
     yum install -y nodejs gcc-c++ make screen
     </code>
-  </li>
-  <li><h3>III- Install websocket-over-nodejs and his dependencies:</h3>
-    <ul>
-      <li><code>npm install node-static</code></li>
-      <li><code>npm install websocket</code></li>
-      <li><code>npm install websocket-over-nodejs</code></li>
-    </ul>
-  </li>
-<li><h3>IV- Run your signaling server:</h3>
-    <ul>
-      <li><code>cd node_modules/websocket-over-nodejs/</code></li>
-      <li><code>screen -S "signalingServer"</code></li>
-      <li><code>nodejs signaler.js</code></li>
-    </ul>
-  </li>
-</ul>
-<p>Now press Ctrl+A then press D to detach screen.
-CONGRATULATIONS, you just set up your own Signaling Server, compatible with Nebulo!</p>
+            </li>
+            <li class="ncList-item">
+              <h3 class="nc-subSubTitle">III- Install websocket-over-nodejs and his dependencies:</h3>
+              <ul class="ncList">
+                <li class="ncList-item"><code class="ncCodeExample">npm install node-static</code>
+                </li>
+                <li class="ncList-item"><code class="ncCodeExample">npm install websocket</code>
+                </li>
+                <li class="ncList-item"><code class="ncCodeExample">npm install websocket-over-nodejs</code>
+                </li>
+              </ul>
+            </li>
+            <li class="ncList-item">
+              <h3 class="nc-subSubTitle">IV- Run your signaling server:</h3>
+              <ul class="ncList">
+                <li class="ncList-item"><code class="ncCodeExample">cd node_modules/websocket-over-nodejs/</code>
+                </li>
+                <li class="ncList-item"><code class="ncCodeExample">screen -S "signalingServer"</code>
+                </li>
+                <li class="ncList-item"><code class="ncCodeExample">nodejs signaler.js</code>
+                </li>
+              </ul>
+            </li>
+        </ul>
+        <p>Now press <kbd class="ncKey"><kbd class="ncKey">Ctrl</kbd>+<kbd class="ncKey">A</kbd></kbd>then press <kbd class="ncKey">D</kbd> to detach screen. CONGRATULATIONS, you just set up your own Signaling Server, compatible with Nebulo!</p>
 
-<h3>V- (OPTIONAL) Post-install settings</h3>
-<p>Use <code>wss:// (secure protocol):</code></p>
+        <h3 class="nc-subSubTitle">V- (OPTIONAL) Post-install settings</h3>
+        <p>Use <code class="ncCodeExample">wss:// (secure protocol):</code>
+        </p>
 
-<p>If you want to use a securer protocol, like the official server, you will need a domain name (not free...) and a signed certificate (you can get this for free from StartSSL).
-Then, you have to edit the file ssl.js from the websocket-over-nodejs folder. Edit line 19-20 to point to your certificate and your private key files.
-You can now run your signaling server by using "nodejs ssl.js" instead of "nodejs signaler.js".</p>
+        <p>If you want to use a securer protocol, like the official server, you will need a domain name (not free...) and a signed certificate (you can get this for free from StartSSL). Then, you have to edit the file ssl.js from the websocket-over-nodejs folder. Edit line 19-20 to point to your certificate and your private key files. You can now run your signaling server by using "nodejs ssl.js" instead of "nodejs signaler.js".</p>
 
-<span>Change the listening port:</span>
+        <span>Change the listening port:</span>
 
-<p>You can also change the listening port by editing signaler.js or ssl.js and change the line
-app.listen(...);
-at the end of the file to put whatever port number you would like between the brackets.
-For example, if you want to use the port "22500", you would write "app.listen(22500);".</p>
+        <p>You can also change the listening port by editing signaler.js or ssl.js and change the line app.listen(...); at the end of the file to put whatever port number you would like between the brackets. For example, if you want to use the port "22500", you would write "app.listen(22500);".</p>
+      </section>
+      <section class="ncSection">
+        <header class="ncSection-header">
+          <h2 class="nc-subTitle">Special Thanks</h2>
+        </header>
 
-<h2>Special Thanks</h2>
-
-<ul>
-  <li><a href="http://kp-sama.deviantart.com/">KuroPekoe</a>, who designed the cool Nebulo logo.</li>
-  <li><a href="http://clement-galidie.fr/">Galidie Clément</a>, who designed the extension popup.</li>
-</ul>
-      <p>Copyright (c) 2014 nebulochat.com. All rights reserved.</p>
+        <ul class="ncList">
+          <li class="ncList-item"><a class="ncList-link" href="http://kp-sama.deviantart.com/">KuroPekoe</a>, who designed the cool Nebulo logo.</li>
+          <li class="ncList-item"><a class="ncList-link" href="http://clement-galidie.fr/">Galidie Clément</a>, who designed the extension popup.</li>
+        </ul>
+      </section>
+      <footer class="footer" role="contentinfo">
+        <p>Copyright &copy; 2014 <a class="footer-link" href="#">nebulochat.com</a>. All rights reserved.</p>
+      </footer>
     </main>
   </div>
 </body>
+
 </html>
