@@ -11,6 +11,7 @@
   <div class="ncWrapper">
     <div class="ncLogoMenu">
       <img src="assets/img/nebulo.png" alt="Nebulochat" class="logo" width="316" height="210">
+      <button class="ncShowMenu" type="button">Show menu</button>
       <nav class="ncMenuWrapper" role="navigation">
         <ul class="ncMenu">
           <li class="ncMenu-item"><a href="" class="ncMenu-link">Home</a>
@@ -151,6 +152,18 @@
       </footer>
     </main>
   </div>
+  <script>
+    (function () {
+      'use strict';
+      
+      var mainMenu = document.querySelector('.ncMenuWrapper');
+      var buttonOpenMenu = document.querySelector('.ncShowMenu');
+      
+      buttonOpenMenu.addEventListener('click', function () {
+        this.classList.add('ncShowMenu--hidden');
+        mainMenu.classList.add('ncMenuWrapper--shown');
+      });
+    }());
+  </script>
 </body>
-
 </html>

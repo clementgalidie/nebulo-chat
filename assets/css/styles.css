@@ -493,6 +493,8 @@ p {
           box-sizing: border-box;
 }
 
+.ncShowMenu {display: none;}
+
 .ncMenu {
   margin-top: 0;
   margin-bottom: 0;
@@ -582,4 +584,69 @@ p {
 .footer-link:hover,
 .footer-link:focus {
   text-decoration: underline;
+}
+
+/*Responsive version*/
+/* 980px */
+@media screen and (max-width: 61.25em) {
+  .ncWrapper {
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .ncLogoMenu {
+    float: none;
+    margin-right: 0;
+  }
+  
+  .logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .ncMenuWrapper {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .ncContent {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* 600px */
+@media screen and (max-width: 37.5em) {
+  .ncMenuWrapper {display: none;}
+  
+  .ncShowMenu {
+    display: block;
+    width: 6.25rem;
+    min-height: 3.75rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    font: 0/0 a;
+    border: none;
+    background: none;
+  }
+  
+  .ncShowMenu::before {
+    content: '';
+    display: block;
+    height: .5rem;
+    background-color: #8C4F95;
+    box-shadow: 0 12px 0 0 #8C4F95, 0 24px 0 0 #8C4F95;
+  }
+  
+  .ncShowMenu::before:hover {cursor: pointer;}
+  
+  .ncContent-title span:before {display: none;}
+  
+  .ncShowMenu--hidden {display: none;}
+  
+  .ncMenuWrapper--shown {display: block;}
 }
