@@ -8,4 +8,4 @@ I'm just going to improve it. More details soon... :)
 * Valid HTML code.
 * **BEM** syntax.
 * Responsive version.
-* Possibility to navigate with keyboard.
+* Possibility to navigate with keyboard (notably **_tab_** key).
