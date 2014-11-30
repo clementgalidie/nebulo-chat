@@ -7,5 +7,6 @@ I'm just going to improve it. More details soon... :)
 ## Improvements
 * Valid HTML code.
 * **BEM** syntax.
+* **REM** unit.
 * Responsive version.
 * Possibility to navigate with keyboard (notably **_tab_** key).
