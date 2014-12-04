@@ -14,6 +14,7 @@
       <button class="ncShowMenu" type="button">Show menu</button>
       <nav class="ncMenuWrapper" role="navigation">
         <ul class="ncMenu">
+          <li class="ncMenu-item"><button type="button" class="ncMenu-button ncMenu-button--hidden">x</button></li>
           <li class="ncMenu-item"><a href="" class="ncMenu-link">Home</a>
           </li>
           <li class="ncMenu-item"><a href="" class="ncMenu-link">About</a>
@@ -158,10 +159,17 @@
       
       var mainMenu = document.querySelector('.ncMenuWrapper');
       var buttonOpenMenu = document.querySelector('.ncShowMenu');
+      var buttonCloseMenu = document.querySelector('.ncMenu-button');
       
       buttonOpenMenu.addEventListener('click', function () {
         this.classList.add('ncShowMenu--hidden');
         mainMenu.classList.add('ncMenuWrapper--shown');
+      });
+      
+      buttonCloseMenu.addEventListener('click', function () {
+        this.classList.add('.ncMenu-button--hidden');
+        buttonOpenMenu.classList.remove('ncShowMenu--hidden');
+        mainMenu.classList.remove('ncMenuWrapper--shown');
       });
     }());
   </script>
