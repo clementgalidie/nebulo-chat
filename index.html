@@ -126,7 +126,7 @@
               </ul>
             </li>
         </ul>
-        <p>Now press <kbd class="ncKey"><kbd class="ncKey">Ctrl</kbd>+<kbd class="ncKey">A</kbd></kbd>then press <kbd class="ncKey">D</kbd> to detach screen. CONGRATULATIONS, you just set up your own Signaling Server, compatible with Nebulo!</p>
+        <p>Now press <kbd class="ncKey"><kbd class="ncKey">Ctrl</kbd>+<kbd class="ncKey">A</kbd></kbd>then press <kbd class="ncKey">D</kbd> to detach screen. CONGRATULATIONS, yPou just set up your own Signaling Server, compatible with Nebulo!</p>
 
         <h3 class="nc-subSubTitle">V- (OPTIONAL) Post-install settings</h3>
         <p>Use <code class="ncCodeExample">wss:// (secure protocol):</code>
@@ -155,21 +155,21 @@
   </div>
   <script>
     (function () {
-      'use strict';
+      "use strict";
       
-      var mainMenu = document.querySelector('.ncMenuWrapper');
-      var buttonOpenMenu = document.querySelector('.ncShowMenu');
-      var buttonCloseMenu = document.querySelector('.ncMenu-button');
+      var mainMenu = document.querySelector(".ncMenuWrapper");
+      var buttonOpenMenu = document.querySelector(".ncShowMenu");
+      var buttonCloseMenu = document.querySelector(".ncMenu-button");
       
-      buttonOpenMenu.addEventListener('click', function () {
-        this.classList.add('ncShowMenu--hidden');
-        mainMenu.classList.add('ncMenuWrapper--shown');
+      buttonOpenMenu.addEventListener("click", function () {
+        this.classList.add("ncShowMenu--hidden");
+        mainMenu.classList.add("ncMenuWrapper--shown");
       });
       
-      buttonCloseMenu.addEventListener('click', function () {
-        this.classList.add('.ncMenu-button--hidden');
-        buttonOpenMenu.classList.remove('ncShowMenu--hidden');
-        mainMenu.classList.remove('ncMenuWrapper--shown');
+      buttonCloseMenu.addEventListener("click", function () {
+        this.classList.add(".ncMenu-button--hidden");
+        buttonOpenMenu.classList.remove("ncShowMenu--hidden");
+        mainMenu.classList.remove("ncMenuWrapper--shown");
       });
     }());
   </script>
