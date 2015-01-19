@@ -1,0 +1,20 @@
+$main-font-stack:  'helvetica', 'Arial', sans-serif;
+$main-color: #8C4F95;
+$title-color: #fff;
+
+html {font-size: 100%;}
+
+body {
+  font-family: $main-font-stack;
+  font-size: 1rem;
+  background-color: #000;
+}
+
+h1,
+h2,
+h3 {color: $title-color}
+
+p {
+  margin: 0;
+  color: $main-color;
+}
