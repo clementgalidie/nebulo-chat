@@ -1,20 +1,62 @@
+// Variables declarations.
 $main-font-stack:  'helvetica', 'Arial', sans-serif;
 $main-color: #8C4F95;
 $title-color: #fff;
+$base-font-size: 16;
+
+// Function to convert px into rem and provide a px fallback.
+@function px-to-rem($font-size-desired) {
+  @return ($font-size-desired * 1px), ($font-size-desired / $base-font-size) * 1rem;
+}
+
+// Function to respectively return the first and last values of a list.
+@function firstListValue($list) {
+  @return nth($list, 1);
+}
+
+@function lastListValue($list) {
+  @return nth($list, length($list));
+}
 
 html {font-size: 100%;}
 
 body {
   font-family: $main-font-stack;
-  font-size: 1rem;
+  line-height: 1.5;
   background-color: #000;
 }
 
-h1,
-h2,
-h3 {color: $title-color}
+.ncWrapper {
+	$width: px-to-rem(980);
+	width: firstListValue($width); // px unit.
+  width: lastListValue($width); // rem unit.
+  margin-right: auto;
+  margin-left: auto;
+}
 
-p {
-  margin: 0;
-  color: $main-color;
+.ncContent-title {
+	position: relative;
+	$max-width: px-to-rem(700);
+	max-width: firstListValue($max-width);
+	max-width: lastListValue($max-width);
+	margin-bottom: 0;
+	font-family: 'Mars', sans-serif;
+	$font-size: px-to-rem(112);
+	font-size: firstListValue($font-size);
+	font-size: lastListValue($font-size);
+	font-style: italic;
+	color: #FC00FF;
+	$letter-spacing: px-to-rem(1);
+	letter-spacing: firstListValue($letter-spacing);
+	letter-spacing: lastListValue($letter-spacing);
+	text-transform: uppercase;
+}
+
+.nc-subTitle {
+	$font-size: px-to-rem(24);
+	font-size: firstListValue($font-size);
+	font-size: lastListValue($font-size);
+	color: $title-color;
+	text-align: center;
+	border-top: 2px solid $title-color;
 }

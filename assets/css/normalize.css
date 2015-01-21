@@ -441,11 +441,9 @@ th {
 ::-moz-selection {
   color: #fff;
   background-color: #8C4F95;
-  text-shadow: 0 0 1px #fff;
 }
 
 ::selection {
   color: #fff;
   background-color: #8C4F95;
-  text-shadow: 0 0 1px #fff;
 }
